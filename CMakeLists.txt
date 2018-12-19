@@ -1397,6 +1397,7 @@ IF(LIBTYPE STREQUAL "STATIC")
         SET(CPP_DEFS ${CPP_DEFS} AL_NO_UID_DEFS)
     ENDIF()
     ADD_LIBRARY(OpenAL STATIC ${COMMON_OBJS} ${OPENAL_OBJS} ${ALC_OBJS})
+    SET_PROPERTY(TARGET OpenAL PROPERTY POSITION_INDEPENDENT_CODE TRUE)
 ELSE()
     # Make sure to compile the common code with PIC, since it'll be linked into
     # shared libs that needs it.
